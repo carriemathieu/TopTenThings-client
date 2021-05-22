@@ -4,7 +4,9 @@ import { updateLoginForm } from '../actions/loginForm.js'
 
 const Login = ({loginForm, updateLoginForm }) => {
     const handleInputChange = event => {
+        // gives me name & value from event.target
         const { name, value } = event.target
+        // builds object with event name (i.e. email/password) & field value
         const updatedFormInfo = {
             ...loginForm,
             [name]: value
@@ -22,12 +24,15 @@ const Login = ({loginForm, updateLoginForm }) => {
 }
 
 // gives me an argument (object) coming to this component
+// gives us access to props.loginForm
+// { 
+    // email: "xxx@xxx.com"
+    // password: "xxx"
+// }
 const mapStateToProps = state => {
     return {
         loginForm: state.loginForm
     }
 }
-
-// const mapDispatchToProps -> dispatches return value of updateloginform -> this.props.updateLoginForm
 
 export default connect(mapStateToProps, { updateLoginForm })(Login)
