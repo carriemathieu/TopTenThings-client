@@ -10,7 +10,7 @@ export const setCurrentUser = user => {
 export const login = credentials => {
     return dispatch => {
         return fetch("http://loclhost:3000/api/v1/login", {
-            
+            credentials: "include",
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
