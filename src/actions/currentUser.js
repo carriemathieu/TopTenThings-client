@@ -16,7 +16,7 @@ export const clearCurrentUser = () => {
 
 export const login = credentials => {
     return dispatch => {
-        return fetch("http://loclhost:3000/api/v1/login", {
+        return fetch("http://localhost:3000/api/v1/login", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -40,7 +40,7 @@ export const login = credentials => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
-        return fetch("http://loclhost:3000/api/v1/logout", {
+        return fetch("http://localhost:3000/api/v1/logout", {
             credentials: "include",
             method: "DELETE"
         })
