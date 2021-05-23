@@ -5,6 +5,13 @@ export const setCurrentUser = user => {
     }
 }
 
+// clears current user from redux store
+export const clearCurrentUser = () => {
+    return {
+        type: "CLEAR_CURRENT_USER"
+    }
+}
+
 // async action creators
 
 export const login = credentials => {
@@ -30,7 +37,17 @@ export const login = credentials => {
     }
 }
 
-// credentials include = sends credentials to backend
+export const logout = () => {
+    return dispatch => {
+        dispatch(clearCurrentUser())
+        return fetch("http://loclhost:3000/api/v1/logout", {
+            credentials: "include",
+            method: "DELETE"
+        })
+    }
+}
+
+// credentials include = sends credentials to backend w cookies
 export const getCurrentUser = () => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/get_current_user", {
