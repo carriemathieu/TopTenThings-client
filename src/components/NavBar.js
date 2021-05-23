@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 // functional component so no "this" -> just props, currentUser destructured from props
 const NavBar = ({ currentUser }) => {
     return (
-        <div>
+        <div className = "nav">
             {currentUser ? `Welcome ${currentUser.first_name}` : ""}
             {currentUser ? <Logout /> : <Login/>}
         </div>
