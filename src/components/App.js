@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/currentUser'
+import MainContainer from './MainContainer'
 import NavBar from './NavBar'
 
 
@@ -14,7 +15,10 @@ class App extends React.Component {
 
     render() {
         return ( 
-            <NavBar/>
+            <div className="App">
+                <NavBar/>
+                <MainContainer/>
+            </div>
         )
     }
 }
