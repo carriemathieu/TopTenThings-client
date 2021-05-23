@@ -6,9 +6,11 @@ export const setCurrentUser = user => {
 }
 
 // async action creators
+
 export const login = credentials => {
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/login", {
+        return fetch("http://loclhost:3000/api/v1/login", {
+            
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,9 +30,11 @@ export const login = credentials => {
     }
 }
 
+// credentials include = sends credentials to backend
 export const getCurrentUser = () => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/get_current_user", {
+            credentials: "include",
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
