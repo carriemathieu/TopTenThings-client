@@ -20,10 +20,10 @@ export const login = credentials => {
             if (user.error) {
                 alert(user.error)
             } else {
-                // dispatches -> {type: "SET_CURRENT_USER", user: user }, user as arg
+                // dispatches -> action creator{type: "SET_CURRENT_USER", user: user }, user as arg
                 dispatch(setCurrentUser(user))
             }
         })
-        .catch(console.log(error))
+        .catch(console.log)
     }
 }
