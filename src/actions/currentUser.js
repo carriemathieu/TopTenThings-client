@@ -27,3 +27,24 @@ export const login = credentials => {
         .catch(console.log)
     }
 }
+
+export const getCurrentUser = () => {
+    return dispatch => {
+        return fetch("http://localhost:3000/api/v1/get_current_user", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        .then(resp => resp.json())
+        .then(user => {
+            if (user.error) {
+                alert(user.error)
+            } else {
+                // dispatches -> action creator{type: "SET_CURRENT_USER", user: user }, user as arg
+                dispatch(setCurrentUser(user))
+            }
+        })
+        .catch(console.log)
+    }
+}

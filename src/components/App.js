@@ -1,12 +1,15 @@
 import React from 'react'
 import Login from './Login.js'
+import { connect } from 'react-redux'
+import { getCurrentUser } from '../actions/currentUser'
 
 class App extends React.Component {
-    // componentDidMount() {
-    //     fetch("http://localhost:3000/api/v1/categories")
-    //         .then(resp => resp.json())
-    //         .then(console.log)
-    // }
+
+    // every time component mounts, going to check for current user
+    // sends fetch request to backend
+    componentDidMount() {
+        getCurrentUser()
+    }
 
     render() {
         return ( 
@@ -15,4 +18,4 @@ class App extends React.Component {
     }
 }
 
-export default App
+export default connect(null, { getCurrentUser })(App)
