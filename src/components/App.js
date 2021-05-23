@@ -8,7 +8,7 @@ class App extends React.Component {
     // every time component mounts, going to check for current user
     // sends fetch request to backend
     componentDidMount() {
-        getCurrentUser()
+        this.props.getCurrentUser()
     }
 
     render() {
