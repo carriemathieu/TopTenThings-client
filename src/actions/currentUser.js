@@ -1,4 +1,5 @@
 import { resetLoginForm } from './loginForm'
+import {getLists} from './allLists'
 
 export const setCurrentUser = user => {
     return {
@@ -33,6 +34,7 @@ export const login = credentials => {
             } else {
                 // dispatches -> action creator{type: "SET_CURRENT_USER", user: user }, user as arg
                 dispatch(setCurrentUser(response))
+                dispatch(getLists())
                 dispatch(resetLoginForm())
             }
         })
