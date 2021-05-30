@@ -34,7 +34,6 @@ export const login = credentials => {
             } else {
                 // dispatches -> action creator{type: "SET_CURRENT_USER", user: user }, user as arg
                 dispatch(setCurrentUser(response))
-                dispatch(getLists())
                 dispatch(resetLoginForm())
             }
         })
@@ -69,6 +68,7 @@ export const getCurrentUser = () => {
             } else {
                 // dispatches -> action creator{type: "SET_CURRENT_USER", user: user }, user as arg
                 dispatch(setCurrentUser(response.data))
+                dispatch(getLists())
             }
         })
         .catch(console.log)

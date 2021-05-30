@@ -21,7 +21,7 @@ export const getLists = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                dispatch(setAllLists([]))
+                dispatch(setAllLists(response.data))
             }
         })
         .catch(console.log)
