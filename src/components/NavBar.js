@@ -8,6 +8,9 @@ const NavBar = ({ currentUser }) => {
     return (
         <div className = "Navbar">
             {currentUser ? `Welcome ${currentUser.attributes.first_name}` : ""}
+            <button>Log in</button> 
+            or
+            <button>Create an Account</button>
             {currentUser ? <Logout /> : <Login/>}
         </div>
     )
