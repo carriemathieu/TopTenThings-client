@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import ListCard from './ListCard'
 
-
 const AllLists = props => {
     const listCards = props.allLists.length > 0 ? props.allLists.map(list => <ListCard list={list} key={list.id} />) : "Loading..."
     

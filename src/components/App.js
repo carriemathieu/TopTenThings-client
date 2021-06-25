@@ -1,8 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/currentUser'
-import MainContainer from './MainContainer'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 import NavBar from './NavBar'
+import AllLists from './AllLists'
+
+import Login from './Login'
+import Logout from './Logout'
+// import MainContainer from './MainContainer'
+
 
 
 class App extends React.Component {
@@ -17,7 +24,14 @@ class App extends React.Component {
         return ( 
             <div className="App">
                 <NavBar/>
-                <MainContainer/>
+                {/* <MainContainer/> */}
+                <Router>
+                    <>
+                    <Route exact path='/login' component = {Login} />
+                    <Route exact path='/signup' component={Logout}/>
+                    <Route exact path='all-lists' component={AllLists} />
+                    </>
+                </Router>
             </div>
         )
     }
