@@ -7,7 +7,7 @@ import NavBar from './NavBar'
 import AllLists from './AllLists'
 
 import Login from './Login'
-import Logout from './Logout'
+import SignUp from './SignUp'
 // import MainContainer from './MainContainer'
 
 
@@ -27,6 +27,7 @@ class App extends React.Component {
                 {/* <MainContainer/> */}
                 <Router>
                     <>
+                    <Route exact path='/signup' component = {SignUp} />
                     <Route exact path='/login' component = {Login} />
                     <Route exact path='all-lists' component={AllLists} />
                     </>
