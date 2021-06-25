@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateSignupForm } from '../actions/currentUser.js'
+import { updateSignUpForm } from '../actions/currentUser.js'
 
-const SignUp = ({ signupFormData, updateSignupForm, signup }) => {
+const SignUp = ({ signupFormData, updateSignUpForm, signup }) => {
     const handleInputChange = event => {
         const { name, value } = event.target
         const updatedFormInfo = {
             ...signupFormData,
             [name]: value
         }
-        updateSignupForm(updatedFormInfo)
+        updateSignUpForm(updatedFormInfo)
     }
 
     const handleSubmit = event => {
@@ -19,8 +19,10 @@ const SignUp = ({ signupFormData, updateSignupForm, signup }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input placeholder="email" name="email" value={loginFormData.email} type="text" onChange={handleInputChange} />
-            <input placeholder="password" name="password" value={loginFormData.password} type="password" onChange={handleInputChange} />
+            <input placeholder="firstName" name="firstName" value={signupFormData.firstName} type="text" onChange={handleInputChange} />
+            <input placeholder="lastName" name="lastName" value={signupFormData.lastName} type="text" onChange={handleInputChange} />
+            <input placeholder="email" name="email" value={signupFormData.email} type="text" onChange={handleInputChange} />
+            <input placeholder="password" name="password" value={signupFormData.password} type="password" onChange={handleInputChange} />
             <input type="submit" value="Sign Up"/>
         </form>
     )
@@ -28,10 +30,13 @@ const SignUp = ({ signupFormData, updateSignupForm, signup }) => {
 
 const mapStateToProps = state => {
     return {
-        signupFormDate: state.signupForm
+        signupFormData: state.signupForm
     }
 }
 
-export default connect(mapStateToProps, { updateSignupForm, signup })(SignUp)
+export default connect(mapStateToProps, { updateSignUpForm, signup })(SignUp)
 
 
+// t.string "first_name"
+// t.string "last_name"
+// t.string "email"
