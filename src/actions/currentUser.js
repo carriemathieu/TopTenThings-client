@@ -1,5 +1,5 @@
 import { resetLoginForm } from './loginForm'
-import {getLists} from './allLists'
+import { getLists } from './allLists'
 
 export const setCurrentUser = user => {
     return {
@@ -16,7 +16,6 @@ export const clearCurrentUser = () => {
 }
 
 // async action creators
-
 export const login = credentials => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/login", {
