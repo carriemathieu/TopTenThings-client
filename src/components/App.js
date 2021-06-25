@@ -10,8 +10,6 @@ import Login from './Login'
 import SignUp from './SignUp'
 // import MainContainer from './MainContainer'
 
-
-
 class App extends React.Component {
 
     // every time component mounts, going to check for current user
