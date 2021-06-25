@@ -28,7 +28,6 @@ class App extends React.Component {
                 <Router>
                     <>
                     <Route exact path='/login' component = {Login} />
-                    <Route exact path='/signup' component={Logout}/>
                     <Route exact path='all-lists' component={AllLists} />
                     </>
                 </Router>
