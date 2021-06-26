@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { updateLoginForm } from '../actions/loginForm.js'
 import { login } from '../actions/currentUser'
 
-const Login = ({loginFormData, updateLoginForm, login }) => {
+const Login = ({loginFormData, updateLoginForm, login, history }) => {
 
     const handleInputChange = event => {
         // gives me name & value from event.target
@@ -16,9 +16,10 @@ const Login = ({loginFormData, updateLoginForm, login }) => {
         updateLoginForm(updatedFormInfo)
     }
 
+    // calls on login action creator, passes in history in order force react to update & redirect user to '/' path after logging in
     const handleSubmit = event => {
         event.preventDefault()
-        login(loginFormData)
+        login(loginFormData, history)
     }
 
     return (
