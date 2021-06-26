@@ -1,14 +1,18 @@
 import React from 'react'
-// import Login from './Login.js'
-// import Logout from './Logout.js'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import Logout from './Logout.js'
+
 // functional component so no "this" -> just props, currentUser destructured from props
-const NavBar = ({ currentUser }) => {
+const NavBar = ({ currentUser, loggedIn }) => {
     return (
         <div className = "Navbar">
             {currentUser ? `Welcome ${currentUser.attributes.first_name}` : ""}
-            {/* {currentUser ? <Logout /> : <Login/>} */}
+            { loggedIn ? <Logout/> : null }
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/lists">All Lists</NavLink>
+            {/* add search */}
         </div>
     )
 }

@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 import NavBar from './NavBar'
 import AllLists from './AllLists'
 
-import Logout from './Logout'
 import Login from './Login'
 import SignUp from './SignUp'
 import Home from './Home'
@@ -27,8 +26,7 @@ class App extends React.Component {
 
         return ( 
             <div className="App">
-                {/* <NavBar/> */}
-                { loggedIn ? <Logout/> : null }
+                <NavBar/>
                 <Router>
                     <>
                     <Route exact path='/signup' render={({history}) => <SignUp history={history}/>} />

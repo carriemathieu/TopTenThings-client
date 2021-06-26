@@ -1,4 +1,8 @@
-/* .NavBar {
+.NavBar {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+/* a.active {
+    color: green;
 } */
