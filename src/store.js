@@ -6,14 +6,15 @@ import currentUser from './reducers/currentUser.js'
 import loginForm from './reducers/loginForm'
 import allLists from './reducers/allLists'
 import signUpForm from './reducers/signUp'
-
+import newListForm from './reducers/newListForm'
 
 const reducer = combineReducers({
     users, 
     currentUser,
     loginForm,
     allLists,
-    signUpForm
+    signUpForm,
+    newListForm
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
