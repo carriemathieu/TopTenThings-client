@@ -17,7 +17,7 @@ export const clearCurrentUser = () => {
 }
 
 // async action creators
-export const login = credentials => {
+export const login = (credentials, history) => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/login", {
             credentials: "include",
@@ -35,6 +35,8 @@ export const login = credentials => {
                 // dispatches -> action creator{type: "SET_CURRENT_USER", user: user }, user as arg
                 dispatch(setCurrentUser(response))
                 dispatch(resetLoginForm())
+                // redirects user to home page
+                history.push('/')
             }
         })
         .catch(console.log)
