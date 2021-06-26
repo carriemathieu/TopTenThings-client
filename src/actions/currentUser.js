@@ -44,7 +44,7 @@ export const login = (credentials, history) => {
     }
 }
 
-export const signup = credentials => {
+export const signup = (credentials, history) => {
     return dispatch => {
         const userInfo = {
             user: credentials
@@ -64,6 +64,7 @@ export const signup = credentials => {
             } else {
                 dispatch(setCurrentUser(response.data))
                 dispatch(resetSignUpForm())
+                history.push('/')
             }
         })
     }
