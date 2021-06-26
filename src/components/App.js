@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/currentUser'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 import NavBar from './NavBar'
 import AllLists from './AllLists'
@@ -10,6 +10,7 @@ import Logout from './Logout'
 import Login from './Login'
 import SignUp from './SignUp'
 import Home from './Home'
+import NewListForm from './NewListForm'
 // import MainContainer from './MainContainer'
 
 class App extends React.Component {
@@ -26,17 +27,16 @@ class App extends React.Component {
 
         return ( 
             <div className="App">
-                <NavBar/>
-                <Logout/>
+                {/* <NavBar/> */}
+                { loggedIn ? <Logout/> : null }
                 <Router>
-                    <Switch>
-                        <>
-                        <Route exact path='/' render={() => loggedIn ? <AllLists/> : <Home/>}/>
-                        <Route exact path='/signup' component = {SignUp} />
-                        <Route exact path='/login' component = {Login} />
-                        {/* <Route exact path='all-lists' component={AllLists} /> */}
-                        </>
-                    </Switch>
+                    <>
+                    <Route exact path='/signup' render={({history}) => <SignUp history={history}/>} />
+                    <Route exact path='/login' component = {Login} />
+                    {/* <Route exact path='all-lists' component={AllLists} /> */}
+                    <Route exact path='/' render={(props) => loggedIn ? <AllLists {...props} /> : <Home {...props}/>} />
+                    <Route exact path='/lists/new' component={NewListForm} />
+                    </>
                 </Router>
             </div>
         )
@@ -50,6 +50,6 @@ const mapStateToProps = state => {
     })
 }
 
-export default connect(null, { getCurrentUser })(App)
+export default connect(mapStateToProps, { getCurrentUser })(App)
 /* <MainContainer/>
 <Footer/> */
