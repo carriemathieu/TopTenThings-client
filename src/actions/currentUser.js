@@ -73,6 +73,7 @@ export const signup = (credentials, history) => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
+        // dispatch(clearLists())
         return fetch("http://localhost:3000/api/v1/logout", {
             credentials: "include",
             method: "DELETE"

@@ -6,6 +6,13 @@ export const setAllLists = lists => {
     }
 }
 
+// include in myLists -> clear after user logs outß
+export const clearTrips = () => {
+    return {
+        type: "CLEAR_TRIPS"
+    }
+}
+
 // async actions
 export const getLists = () => {
     return dispatch => {
