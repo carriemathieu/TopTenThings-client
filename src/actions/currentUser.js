@@ -1,5 +1,6 @@
 import { resetLoginForm } from './loginForm'
 import { getLists } from './allLists'
+import { resetSignUpForm } from './signUp'
 
 export const setCurrentUser = user => {
     return {
@@ -42,7 +43,7 @@ export const login = credentials => {
 
 export const signup = credentials => {
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/login", {
+        return fetch("http://localhost:3000/api/v1/signup", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -56,7 +57,7 @@ export const signup = credentials => {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
-                dispatch(resetLoginForm())
+                dispatch(resetSignUpForm())
             }
         })
     }
