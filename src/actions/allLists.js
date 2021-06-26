@@ -7,9 +7,9 @@ export const setAllLists = lists => {
 }
 
 // include in myLists -> clear after user logs outß
-export const clearTrips = () => {
+export const clearLists = () => {
     return {
-        type: "CLEAR_TRIPS"
+        type: "CLEAR_LISTS"
     }
 }
 
