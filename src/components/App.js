@@ -8,7 +8,7 @@ import AllLists from './AllLists'
 
 import Login from './Login'
 import SignUp from './SignUp'
-import Home from './Home'
+import { Home } from './Home'
 import NewListForm from './NewListForm'
 // import MainContainer from './MainContainer'
 
@@ -25,10 +25,10 @@ class App extends React.Component {
         const { loggedIn } = this.props
 
         return ( 
-            <div className="App">
-                {/* {loggedIn ? <NavBar/> : <Home/>} */}
+            <div className="App"> 
                 <Router>
                     <>
+                    {loggedIn ? <NavBar location={this.props.location}/> : <Home/>}
                     <Route exact path='/signup' render={({history}) => <SignUp history={history}/>} />
                     <Route exact path='/login' component = {Login} />
                     {/* <Route exact path='all-lists' component={AllLists} /> */}
