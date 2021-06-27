@@ -28,11 +28,11 @@ class App extends React.Component {
             <div className="App"> 
                 <Router>
                     <>
-                    {loggedIn ? <NavBar location={this.props.location}/> : <Home/>}
+                    {loggedIn ? <NavBar loggedIn={loggedIn} history={this.props.history}/> : <Home currentUser={this.props.currentUser}/>}
                     <Route exact path='/signup' render={({history}) => <SignUp history={history}/>} />
                     <Route exact path='/login' component = {Login} />
                     {/* <Route exact path='all-lists' component={AllLists} /> */}
-                    <Route exact path='/' render={(props) => loggedIn ? <AllLists {...props} /> : <Home {...props}/>} />
+                    <Route exact path='/' render={(props) => loggedIn ? <AllLists {...props} /> : null} />
                     <Route exact path='/lists/new' component={NewListForm} />
                     </>
                 </Router>

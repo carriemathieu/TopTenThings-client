@@ -6,11 +6,12 @@ import { withRouter } from 'react-router-dom'
 import Logout from './Logout.js'
 
 // functional component so no "this" -> just props, currentUser destructured from props
-const NavBar = ({ currentUser, loggedIn }) => {
+const NavBar = ({ currentUser, loggedIn, history }) => {
+    // debugger
     return (
         <div className = "Navbar">
             {currentUser ? `Welcome ${currentUser.attributes.first_name}` : ""}
-            { loggedIn ? <Logout/> : null }
+            { loggedIn ? <Logout history={history}/> : null }
             <NavLink to="/">Home</NavLink>
             <NavLink to="/lists">All Lists</NavLink>
             {/* add search */}
@@ -20,7 +21,7 @@ const NavBar = ({ currentUser, loggedIn }) => {
 
 const mapStateToProps = ({ currentUser }) => {
     return {
-        currentUser
+        currentUser: currentUser.data
     }
 }
 
