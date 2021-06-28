@@ -1,6 +1,6 @@
 const initialState = {
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
     password: ""
 }
