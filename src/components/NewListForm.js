@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { updateNewListForm } from '../actions/newListForm'
+import { createList } from '../actions/userLists'
 
-const NewListForm = ({category, list_title, list_content, history}) => {
+const NewListForm = ({category, list_title, list_content, updateNewListForm, createList, userId}) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -11,6 +12,7 @@ const NewListForm = ({category, list_title, list_content, history}) => {
 
     const handleSubmit = event => {
         event.preventDefault()
+        createList({...formData, userId})
     }
 
     return(
@@ -18,25 +20,17 @@ const NewListForm = ({category, list_title, list_content, history}) => {
             <input placeholder= "category" name="category" onChange={handleChange} value={category}/>
             <input placeholder= "list title" name="list_title" onChange={handleChange} value={list_title}/>
             <input placeholder= "list content" name="list_content" onChange={handleChange} value={list_content}/>
-            <input type="submit">Create New List</input>
+            <input type="submit" value="Create List"/>
         </form>
     )
 }
 
 const mapStateToProps = state => {
-    const { category, list_title, list_content } = state.newListForm
-    
     return {
-        category,
-        list_title,
-        list_content
+        formData: state.newListForm,
+        userId: state.currentUser.id
     }   
 }
 
 // updateNewListForm = shortcut for mapdispatchtoprops
-export default connect(mapStateToProps, {updateNewListForm})(NewListForm)
-    
-// t.integer "user_id"
-// t.integer "category_id"
-// t.text "list_content", default: [], array: true
-// t.string "list_title"
+export default connect(mapStateToProps, {updateNewListForm, createList})(NewListForm)
