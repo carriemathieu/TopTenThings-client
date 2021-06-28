@@ -1,6 +1,6 @@
 const initialState = {
-    listTitle: "",
-    listContent: "",
+    list_title: "",
+    list_content: "",
     category: ""
 }
 
