@@ -13,6 +13,13 @@ export const clearLists = () => {
     }
 }
 
+export const addList = (list) => {
+    return {
+        type: "ADD_LIST",
+        list
+    }
+}
+
 // async actions //
 export const getUserLists = () => {
     // return dispatch => {
@@ -33,4 +40,23 @@ export const getUserLists = () => {
     //     })
     //     .catch(console.log)
     // }
+}
+
+export const createList = listData => {
+    return dispatch => {
+        console.log(JSON.stringify(listData))
+        return fetch("http://localhost:3000/api/v1/lists", {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(listData)
+        }) 
+        .then(resp => resp.json())
+        .then(response => {
+            response.error ? alert(response.error) : dispatch(addList(response.data))
+        })
+        .then(err => console.log(err))
+    }
 }
