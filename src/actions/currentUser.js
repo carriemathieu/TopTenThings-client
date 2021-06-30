@@ -1,5 +1,6 @@
-import { resetLoginForm } from './loginForm'
+import { getCategories } from './allCategories'
 import { getLists } from './allLists'
+import { resetLoginForm } from './loginForm'
 import { resetSignUpForm } from './signUp'
 
 export const setCurrentUser = user => {
@@ -99,6 +100,7 @@ export const getCurrentUser = () => {
                 // dispatches -> action creator{type: "SET_CURRENT_USER", user: user }, user as arg
                 dispatch(setCurrentUser(response.data))
                 dispatch(getLists())
+                dispatch(getCategories())
             }
         })
         .catch(console.log)
