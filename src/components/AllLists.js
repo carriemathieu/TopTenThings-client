@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import ListCard from './ListCard'
+import { Link } from 'react-router-dom'
 
 const AllLists = props => {
-    const listCards = props.allLists.length > 0 ? props.allLists.map(list => <ListCard list={list} key={list.id} />) : "Loading..."
+    const listCards = props.allLists.length > 0 ? props.allLists.map(list => <p key={list.id}><Link to={`/lists/${list.id}`} key={list.id}> {list.name} </Link></p>) : "Loading..."
     
+
     return (
         listCards
     )

@@ -18,7 +18,7 @@ const NewListForm = ({categories, createList, formData, history, list_title, lis
         event.preventDefault()
         createList({...formData, user_id}, history)
     }
-
+    //Array(10).fill().map
     const optionItems = () => {
         // debugger
         return categories.map((category) =>
@@ -34,6 +34,7 @@ const NewListForm = ({categories, createList, formData, history, list_title, lis
                 <option value="" disabled selected>Please Select a Category</option>
                 {optionItems()}
             </select><br/>
+
             {/* {list_content.map((index) => <input name={`list_content[${index}]`} />)} */}
             1.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 0)} value={list_content}/><br/>
             2.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 1)} value={list_content}/><br/>
