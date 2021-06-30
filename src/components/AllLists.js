@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const AllLists = props => {
-    const listCards = props.allLists.length > 0 ? props.allLists.map(list => <p key={list.id}><Link to={`/lists/${list.id}`} key={list.id}> {list.name} </Link></p>) : "Loading..."
-    
+    const listCards = props.allLists.length > 0 ? props.allLists.map(list => <p key={list.id}><Link to={`/lists/${list.id}`} key={list.id}> {list.attributes.list_title} </Link></p>)  : "Loading..."
 
     return (
         listCards
