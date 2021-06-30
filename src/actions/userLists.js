@@ -1,3 +1,5 @@
+import { resetNewListForm } from "./newListForm"
+
 // sync actions //
 export const setUserLists = lists => {
     return {
@@ -42,7 +44,7 @@ export const getUserLists = () => {
     // }
 }
 
-export const createList = listData => {
+export const createList = (listData, history) => {
     return dispatch => {
         console.log(JSON.stringify(listData))
         return fetch("http://localhost:3000/api/v1/lists", {
@@ -55,7 +57,13 @@ export const createList = listData => {
         }) 
         .then(resp => resp.json())
         .then(response => {
-            response.error ? alert(response.error) : dispatch(addList(response.data))
+            if(response.error){
+                alert(response.error)
+            } else { 
+                dispatch(addList(response.data))
+                dispatch(resetNewListForm())
+                history.push(`/lists/${response.data.id}`)
+            }
         })
         .then(err => console.log(err))
     }
