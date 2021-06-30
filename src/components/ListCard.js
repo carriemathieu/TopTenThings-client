@@ -9,7 +9,7 @@ const ListCard = ({list}) => {
             <p>Category: {list.attributes.category.name}</p>
             <p>Content: (will work on later- need to map)</p>
             <p>Created by: {list.attributes.user.first_name}</p>
-            <Link to={`/lists/${id}/edit`}>Edit this list</Link>
+            <Link to={`/lists/${list.id}/edit`}>Edit this list</Link>
         </div>
         : <p> "No lists!"</p>
     )

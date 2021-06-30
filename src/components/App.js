@@ -43,6 +43,12 @@ class App extends React.Component {
                             return <ListCard list={list} {...props}/> 
                         }
                     }}/>
+                    <Route exact path='/lists/:id/edit' render={props => { 
+                        if(!_.isEmpty(lists)){
+                            const list = lists.find(l => l.id == props.match.params.id) 
+                            // return < list={list} {...props}/> 
+                        }
+                    }}/>
                     </>
                 </Router>
             </div>
