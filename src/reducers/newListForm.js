@@ -7,15 +7,19 @@ const initialState = {
 export default (state=initialState, action) => {
     switch(action.type){
         case "UPDATE_NEW_LIST_FORM":
-            // debugger
             const updatedListContent = [...state.list_content]
             
             updatedListContent[action.index] = action.formData.value
 
+            if(action.formData.name == "list_content") {
+                return {
+                    ...state,
+                    list_content: updatedListContent
+                }
+            }
             return {
                 ...state,
-                list_content: updatedListContent
-                // [action.formData.name][action.index]: action.formData.value
+                [action.formData.name]: action.formData.value
             }
         case "RESET_NEW_LIST_FORM":
             return initialState

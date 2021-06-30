@@ -1,5 +1,4 @@
 // synchronous actions
-// add index
 export const updateNewListForm = (name, value, index) => {
     const formData = { name, value }
     return {
