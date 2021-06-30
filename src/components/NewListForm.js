@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 
 import { updateNewListForm } from '../actions/newListForm'
 import { createList } from '../actions/userLists'
+// import { allCategories } from '../actions/allCategories'
 
 
-const NewListForm = ({category, list_title, list_content, updateNewListForm, createList, user_id, formData}) => {
+const NewListForm = ({list_title, list_content, updateNewListForm, createList, user_id, formData, categories}) => {
 
     // add index
     const handleChange = (event, index) => {
-        // debugger
         const { name, value } = event.target
         updateNewListForm(name, value, index)
     }
@@ -19,11 +19,22 @@ const NewListForm = ({category, list_title, list_content, updateNewListForm, cre
         createList({...formData, user_id})
     }
 
+    const optionItems = () => {
+        // debugger
+        return categories.map((category) =>
+            <option key={category.name} value={category.id} id={category.id} >{category.name}</option>
+        )
+    }
+
     return(
         <form onSubmit={handleSubmit}>
-            <input placeholder= "category" name="category" onChange={handleChange} value={category}/>
             <input placeholder= "list title" name="list_title" onChange={handleChange} value={list_title}/><br/>
-            {/* {formData.list_content.map((index) => <input name={`list_content[${index}]`} />)} */}
+
+            <select onChange={handleChange} name="category_id">
+                <option value="" disabled selected>Please Select a Category</option>
+                {optionItems()}
+            </select><br/>
+            {/* {list_content.map((index) => <input name={`list_content[${index}]`} />)} */}
             1.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 0)} value={list_content}/><br/>
             2.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 1)} value={list_content}/><br/>
             3.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 2)} value={list_content}/><br/>
@@ -43,6 +54,7 @@ const NewListForm = ({category, list_title, list_content, updateNewListForm, cre
 const mapStateToProps = state => {
     const user_id = state.currentUser ? state.currentUser.id : ""
     return {
+        categories: state.allCategories,
         formData: state.newListForm,
         user_id
     }   
