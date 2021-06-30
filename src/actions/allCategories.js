@@ -21,7 +21,6 @@ export const getCategories = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                console.log("api response:", response)
                 dispatch(setAllCategories(response))
             }
         })
