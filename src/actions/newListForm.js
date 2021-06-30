@@ -8,4 +8,9 @@ export const updateNewListForm = (name, value, index) => {
     }
 }
 
+export const resetNewListForm = () => {
+    return {
+        type: "RESET_NEW_LIST_FORM"
+    }
+}
 // async actions
