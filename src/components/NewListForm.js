@@ -6,7 +6,7 @@ import { createList } from '../actions/userLists'
 // import { allCategories } from '../actions/allCategories'
 
 
-const NewListForm = ({list_title, list_content, updateNewListForm, createList, user_id, formData, categories}) => {
+const NewListForm = ({categories, createList, formData, history, list_title, list_content, updateNewListForm, user_id }) => {
 
     // add index
     const handleChange = (event, index) => {
@@ -16,7 +16,7 @@ const NewListForm = ({list_title, list_content, updateNewListForm, createList, u
 
     const handleSubmit = event => {
         event.preventDefault()
-        createList({...formData, user_id})
+        createList({...formData, user_id}, history)
     }
 
     const optionItems = () => {
