@@ -1,7 +1,7 @@
 const initialState = {
     list_title: "",
     list_content: [],
-    category: ""
+    category_id: ""
 }
 
 export default (state=initialState, action) => {
