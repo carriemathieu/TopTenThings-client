@@ -91,7 +91,6 @@ export const updateList = (listData, history) => {
                 alert(response.error)
             } else { 
                 dispatch(updateListState(response.data))
-                dispatch(resetNewListForm())
                 history.push(`/lists/${response.data.id}`)
             }
         })
