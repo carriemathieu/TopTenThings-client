@@ -15,9 +15,16 @@ export const clearLists = () => {
     }
 }
 
-export const addList = (list) => {
+export const addList = list => {
     return {
         type: "ADD_LIST",
+        list
+    }
+}
+
+export const updateListState = list => {
+    return {
+        type: "UPDATE_LIST",
         list
     }
 }
@@ -46,7 +53,6 @@ export const getUserLists = () => {
 
 export const createList = (listData, history) => {
     return dispatch => {
-        console.log(JSON.stringify(listData))
         return fetch("http://localhost:3000/api/v1/lists", {
             credentials: "include",
             method: "POST",
@@ -61,6 +67,30 @@ export const createList = (listData, history) => {
                 alert(response.error)
             } else { 
                 dispatch(addList(response.data))
+                dispatch(resetNewListForm())
+                history.push(`/lists/${response.data.id}`)
+            }
+        })
+        .then(err => console.log(err))
+    }
+}
+
+export const updateList = (listData, history) => {
+    return dispatch => {
+        return fetch(`http://localhost:3000/api/v1/lists/${listData.listId}`, {
+            credentials: "include",
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(listData)
+        }) 
+        .then(resp => resp.json())
+        .then(response => {
+            if(response.error){
+                alert(response.error)
+            } else { 
+                dispatch(updateListState(response.data))
                 dispatch(resetNewListForm())
                 history.push(`/lists/${response.data.id}`)
             }

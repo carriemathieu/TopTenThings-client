@@ -15,6 +15,7 @@ export const resetNewListForm = () => {
 }
 
 export const setEditFormData = list => {
+    debugger
     const listFormData = {
         title: list.attributes.list_title,
         list_content: list.attributes.list_content,
