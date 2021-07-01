@@ -1,4 +1,4 @@
-import { resetNewListForm } from "./newListForm"
+import { resetNewListForm } from "./listForm"
 
 // sync actions //
 export const setUserLists = lists => {
