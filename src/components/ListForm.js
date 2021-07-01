@@ -6,7 +6,7 @@ import { createList } from '../actions/userLists'
 // import { allCategories } from '../actions/allCategories'
 
 
-const ListForm = ({categories, createList, formData, history, list_title, list_content, updateNewListForm, user_id }) => {
+const ListForm = ({categories, formData, history, list_title, list_content, updateNewListForm, user_id, handleSubmit }) => {
 
     // add index
     const handleChange = (event, index) => {
@@ -14,20 +14,15 @@ const ListForm = ({categories, createList, formData, history, list_title, list_c
         updateNewListForm(name, value, index)
     }
 
-    const handleSubmit = event => {
-        event.preventDefault()
-        createList({...formData, user_id}, history)
-    }
     //Array(10).fill().map
     const optionItems = () => {
-        // debugger
         return categories.map((category) =>
             <option key={category.name} value={category.id} id={category.id} >{category.name}</option>
         )
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={event => {handleSubmit(event, formData, user_id, history)}}>
             <input placeholder= "list title" name="list_title" onChange={handleChange} value={list_title}/><br/>
 
             <select onChange={handleChange} name="category_id">
@@ -56,7 +51,7 @@ const mapStateToProps = state => {
     const user_id = state.currentUser ? state.currentUser.id : ""
     return {
         categories: state.allCategories,
-        formData: state.newListForm,
+        formData: state.listForm,
         user_id
     }   
 }
