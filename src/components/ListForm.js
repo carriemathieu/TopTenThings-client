@@ -6,7 +6,7 @@ import { createList } from '../actions/userLists'
 // import { allCategories } from '../actions/allCategories'
 
 
-const ListForm = ({categories, formData, updateNewListForm, user_id, handleSubmit, editMode }) => {
+const ListForm = ({categories, formData, history, updateNewListForm, user_id, handleSubmit, editMode }) => {
     
     // add index
     const handleChange = (event, index) => {
