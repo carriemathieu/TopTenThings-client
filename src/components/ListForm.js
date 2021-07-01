@@ -22,7 +22,10 @@ const ListForm = ({categories, formData, history, updateNewListForm, user_id, ha
     }
 
     return(
-        <form onSubmit={event => {handleSubmit(event, formData, user_id, history)}}>
+        <form onSubmit={event => {
+            event.preventDefault()
+            handleSubmit(formData, user_id, history)
+        }}>
             <input placeholder= "list title" name="list_title" onChange={handleChange} value={formData.list_title}/><br/>
 
             <select onChange={handleChange} name="category_id">

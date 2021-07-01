@@ -8,13 +8,12 @@ import { setEditFormData } from '../actions/listForm'
 class EditListFormWrapper extends React.Component {
 
     componentDidMount() {
-        this.props.setEditFormData(this.props.list)
+        this.props.list && this.props.setEditFormData(this.props.list)
     }
 
-    handleSubmit = (event , formData, user_id, history) =>
+    handleSubmit = (formData, user_id) =>
     {
-        event.preventDefault()
-        const { updateList, list } = this.props
+        const { updateList, list, history } = this.props
         updateList({...formData, listId: list.id, user_id}, history)
     }
 
