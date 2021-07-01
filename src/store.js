@@ -5,7 +5,7 @@ import allCategories from './reducers/allCategories'
 import allLists from './reducers/allLists'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
-import newListForm from './reducers/newListForm'
+import listForm from './reducers/listForm'
 import signUpForm from './reducers/signUp'
 import users from './reducers/users'
 
@@ -13,8 +13,8 @@ const reducer = combineReducers({
     allLists,
     allCategories,
     currentUser,
+    listForm,
     loginForm,
-    newListForm,
     signUpForm,
     users
 })

@@ -10,7 +10,7 @@ import AllLists from './AllLists'
 import Login from './Login'
 import SignUp from './SignUp'
 import { Home } from './Home'
-import NewListForm from './NewListForm'
+import ListForm from './ListForm'
 import ListCard from './ListCard'
 // import MainContainer from './MainContainer'
 
@@ -35,7 +35,7 @@ class App extends React.Component {
                     <Route exact path='/login' component = {Login} />
                     {/* <Route exact path='all-lists' component={AllLists} /> */}
                     <Route exact path='/lists' render={(props) => <AllLists {...props} />} />
-                    <Route exact path='/lists/new' component={NewListForm} />
+                    <Route exact path='/lists/new' component={ListForm} />
                     <Route exact path='/lists/:id' render={props => {  
                         // from lodash library - checks if object is empty. doesn't render list card until lists object is filled in order to use "find"
                         if(!_.isEmpty(lists)){

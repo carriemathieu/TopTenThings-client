@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { updateNewListForm } from '../actions/newListForm'
+import { updateNewListForm } from '../actions/listForm'
 import { createList } from '../actions/userLists'
 // import { allCategories } from '../actions/allCategories'
 
 
-const NewListForm = ({categories, createList, formData, history, list_title, list_content, updateNewListForm, user_id }) => {
+const ListForm = ({categories, createList, formData, history, list_title, list_content, updateNewListForm, user_id }) => {
 
     // add index
     const handleChange = (event, index) => {
@@ -62,4 +62,4 @@ const mapStateToProps = state => {
 }
 
 // updateNewListForm = shortcut for mapdispatchtoprops
-export default connect(mapStateToProps, {updateNewListForm, createList})(NewListForm)
+export default connect(mapStateToProps, {updateNewListForm, createList})(ListForm)
