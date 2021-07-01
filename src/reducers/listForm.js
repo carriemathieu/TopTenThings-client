@@ -23,6 +23,9 @@ export default (state=initialState, action) => {
             }
         case "RESET_NEW_LIST_FORM":
             return initialState
+        case "SET_EDIT_FORM_DATA":
+            // debugger
+            return action.listFormData
         default: 
             return state
     }

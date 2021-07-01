@@ -13,4 +13,17 @@ export const resetNewListForm = () => {
         type: "RESET_NEW_LIST_FORM"
     }
 }
+
+export const setEditFormData = list => {
+    const listFormData = {
+        title: list.attributes.list_title,
+        list_content: list.attributes.list_content,
+        category_id: list.attributes.category_id
+    }
+
+    return {
+        type: "SET_EDIT_FORM_DATA",
+        listFormData
+    }
+}
 // async actions
