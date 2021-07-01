@@ -46,6 +46,7 @@ class App extends React.Component {
                             return <ListCard list={list} {...props}/> 
                         }
                     }}/>
+
                     <Route exact path='/lists/:id/edit' render={props => {  
                         
                         if(!_.isEmpty(lists)){
@@ -54,6 +55,7 @@ class App extends React.Component {
                             setEditFormData(list)
 
                             return <ListForm list={list} {...props}/> 
+
                         }
                     }}/>
                     </>
