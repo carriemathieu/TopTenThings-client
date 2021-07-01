@@ -7,7 +7,7 @@ export default (state = {}, action) => {
         case "SET_USER_LISTS":
             return action.lists
         case "UPDATE_LIST":
-            return state
+            return state.map(list => list.id === action.list.id ? action.list : list)
         default:
             return state
     }
