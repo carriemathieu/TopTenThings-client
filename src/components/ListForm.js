@@ -6,7 +6,7 @@ import { createList } from '../actions/userLists'
 // import { allCategories } from '../actions/allCategories'
 
 
-const ListForm = ({categories, formData, history, list_title, list_content, updateNewListForm, user_id, handleSubmit }) => {
+const ListForm = ({categories, formData, history, list_title, list_content, updateNewListForm, user_id, handleSubmit, editMode }) => {
 
     // add index
     const handleChange = (event, index) => {
@@ -42,7 +42,7 @@ const ListForm = ({categories, formData, history, list_title, list_content, upda
             9.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 8)} value={list_content}/><br/>
             10.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 9)} value={list_content}/><br/>
            
-            <input type="submit" value="Create List"/>
+            <input type="submit" value={editMode ? "Update List" : "Create List"}/>
         </form>
     )
 }

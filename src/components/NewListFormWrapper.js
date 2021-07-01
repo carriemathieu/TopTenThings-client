@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import ListForm from './ListForm'
 import { createList } from '../actions/userLists'
 
-const NewTripFormWrapper = ({ history, createList }) => {
+const NewListFormWrapper = ({ history, createList }) => {
     const handleSubmit = (event , formData, user_id, history) => {
         event.preventDefault()
         debugger
@@ -16,4 +16,4 @@ const NewTripFormWrapper = ({ history, createList }) => {
     )
 }
 
-export default connect(null, { createList })(NewTripFormWrapper)
+export default connect(null, { createList })(NewListFormWrapper)
