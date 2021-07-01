@@ -5,9 +5,7 @@ import ListForm from './ListForm'
 import { createList } from '../actions/userLists'
 
 const NewListFormWrapper = ({ history, createList }) => {
-    const handleSubmit = (event , formData, user_id, history) => {
-        event.preventDefault()
-        debugger
+    const handleSubmit = (formData, user_id) => {
         createList({...formData, user_id}, history)
     }
 
