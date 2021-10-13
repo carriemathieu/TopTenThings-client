@@ -28,7 +28,6 @@ class EditListFormWrapper extends React.Component {
     }
 
     render() { 
-        const { handleSubmit } = this.props
 
         return (
             <ListForm editMode handleSubmit={this.handleSubmit}/>
