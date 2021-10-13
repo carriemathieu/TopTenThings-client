@@ -9,11 +9,12 @@ import Logout from './Logout.js'
 const NavBar = ({ currentUser, loggedIn, history }) => {
     // debugger
     return (
-        <div className = "Navbar">
-            {currentUser ? `Welcome ${currentUser.attributes.first_name}` : ""}
-            { loggedIn ? <Logout history={history}/> : null }
+        <div className = "navbar">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/lists">All Lists</NavLink>
+            <NavLink to="/lists/new">Add List</NavLink>
+            {currentUser ? `Welcome ${currentUser.attributes.first_name}` : ""}
+            { loggedIn ? <Logout history={history}/> : null }
             {/* add search */}
         </div>
     )
