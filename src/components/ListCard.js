@@ -11,7 +11,7 @@ const ListCard = ({list}) => {
             <p>Created by: {list.attributes.user.first_name}</p>
             <Link to={`/lists/${list.id}/edit`}>Edit this list</Link>
         </div>
-        : <p> "No lists!"</p>
+        : <p>  </p>
     )
 }
 

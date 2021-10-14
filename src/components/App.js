@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import _ from 'lodash'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AllLists from './AllLists'
 import EditListFormWrapper from './EditListFormWrapper'
