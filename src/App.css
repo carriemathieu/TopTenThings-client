@@ -33,6 +33,11 @@
     width: 50%;
 }
 
+.listCardsContainer {
+    width: 75%;
+    margin: auto;
+}
+
 #edit-list-link {
     color: white !important;
 }

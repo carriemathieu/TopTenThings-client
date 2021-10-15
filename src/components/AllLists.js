@@ -1,9 +1,29 @@
 import React from 'react'
+import { ListGroup } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 const AllLists = props => {
-    const listCards = props.allLists.length > 0 ? props.allLists.map(list => <p key={list.id}><Link to={`/lists/${list.id}`} key={list.id}> {list.attributes.list_title} </Link></p>)  : "Loading..."
+    const listCards = props.allLists.length > 0 ? 
+    <div className="listCardsContainer">
+        <h3 className="text-center">All Top 10 Lists</h3>
+        <p className="text-center">Click on a list below to see more</p>
+        <ListGroup>
+            {props.allLists.map((list, index) => {
+                return <ListGroup.Item 
+                    key={index}
+                    className="d-flex justify-content-between align-items-start"
+                    action href={`/lists/${list.id}`}
+                >
+                    <div className="ms-2 me-auto">
+                        <div className="fw-bold">  
+                            {list.attributes.list_title}  
+                        </div>
+                        Category: {list.attributes.category.name}
+                    </div>
+                </ListGroup.Item>
+            })} 
+        </ListGroup>  
+    </div> : "Loading..."
 
     return (
         listCards
