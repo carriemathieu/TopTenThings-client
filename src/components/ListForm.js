@@ -58,25 +58,13 @@ const ListForm = ({categories, formData, history, updateNewListForm, user_id, ha
                         size="sm"
                         type="text"
                         placeholder={index+1+'.'}
-                        name="list_content"
+                        name={"list_content"} // "list_content[]" -> just overwrites itself
+                        // "list_content[" + index + "]" stores as list_title, list_content[0], etc instead of in arrayhj
                         onChange={e => handleChange(e, index)}
-                        value={listForm.list_content[index]}
+                        value={formData.list_content[index]}
                     />
                 ))}
             </Form.Group>
-
-            {/* <Form.Group className="mb-3" controlId="formListContent">
-                1.<input   /><br/>
-                2.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 1)} value={formData.list_content[1]}/><br/>
-                3.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 2)} value={formData.list_content[2]}/><br/>
-                4.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 3)} value={formData.list_content[3]}/><br/>
-                5.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 4)} value={formData.list_content[4]}/><br/>
-                6.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 5)} value={formData.list_content[5]}/><br/>
-                7.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 6)} value={formData.list_content[6]}/><br/>
-                8.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 7)} value={formData.list_content[7]}/><br/>
-                9.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 8)} value={formData.list_content[8]}/><br/>
-                10.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 9)} value={formData.list_content[9]}/><br/>
-            </Form.Group> */}
 
             <Form.Group className="d-grid gap-2" controlId="submitButton">
                 <Button 

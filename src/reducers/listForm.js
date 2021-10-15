@@ -1,6 +1,6 @@
 const initialState = {
     list_title: "",
-    list_content: [],
+    list_content: ['', '', '', '', '', '', '', '', '', ''],
     category_id: ""
 }
 
