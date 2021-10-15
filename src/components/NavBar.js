@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { Container, Navbar } from 'react-bootstrap'
 
 import Logout from './Logout.js'
 
@@ -9,14 +10,19 @@ import Logout from './Logout.js'
 const NavBar = ({ currentUser, loggedIn, history }) => {
     // debugger
     return (
-        <div className = "navbar">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/lists">All Lists</NavLink>
-            <NavLink to="/lists/new">Add List</NavLink>
-            {currentUser ? `Welcome ${currentUser.attributes.first_name}` : ""}
-            { loggedIn ? <Logout history={history}/> : null }
-            {/* add search */}
-        </div>
+        // <div className = "navbar">
+            <Navbar bg="dark" variant="dark">
+                <Container>
+                    <NavLink className="navlink" to="/">Home</NavLink>
+                    <NavLink className="navlink" to="/lists">All Lists</NavLink>
+                    <NavLink className="navlink" to="/lists/new">Add List</NavLink>
+                    <Navbar.Text>
+                        {currentUser ? `Welcome ${currentUser.attributes.first_name}` : ""}
+                    </Navbar.Text>
+                    { loggedIn ? <Logout history={history}/> : null }
+                </Container>
+            </Navbar>
+        // </div>
     )
 }
 
