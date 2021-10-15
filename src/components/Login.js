@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateLoginForm } from '../actions/loginForm.js'
 import { login } from '../actions/currentUser'
+import { Form, Button, FloatingLabel } from 'react-bootstrap'
 
 const Login = ({loginFormData, updateLoginForm, login, history }) => {
 
@@ -23,11 +24,50 @@ const Login = ({loginFormData, updateLoginForm, login, history }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input placeholder="email" name="email" value={loginFormData.email} type="text" onChange={handleInputChange} />
-            <input placeholder="password" name="password" value={loginFormData.password} type="password" onChange={handleInputChange} />
-            <input type="submit" value="Log In"/>
-        </form>
+        <div className="login-form-container">
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <FloatingLabel
+                            controlId="loginFormEmail"
+                            label="Email"
+                            className="mb-3"
+                    >
+                        <Form.Control 
+                            type="email"  
+                            placeholder="Email"
+                            name="email" 
+                            value={loginFormData.email}  
+                            onChange={handleInputChange}
+                        />
+                    </FloatingLabel>
+                </Form.Group>
+                
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <FloatingLabel
+                        controlId="loginFormPassword"
+                        label="Password"
+                        className="mb-3"
+                    >
+                        <Form.Control 
+                            type="password" 
+                            placeholder="Password"
+                            name="password" 
+                            value={loginFormData.password} 
+                            onChange={handleInputChange}
+                        />
+                    </FloatingLabel>
+                </Form.Group>
+
+                <div className="d-grid gap-2">
+                    <Button 
+                        variant="outline-dark" 
+                        as="input" 
+                        type="submit"
+                        value="Log In"
+                    />
+                </div>
+            </Form>
+        </div>
     )
 }
 

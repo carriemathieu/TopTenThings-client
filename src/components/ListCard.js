@@ -4,7 +4,7 @@ import { Card, ListGroup } from 'react-bootstrap'
 const ListCard = ({list}) => {
     return (
         list ? 
-        <div className="listContainer">
+        <div className="list-container">
             <Card
                 bg='dark'
                 text='white'

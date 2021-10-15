@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const AllLists = props => {
     const listCards = props.allLists.length > 0 ? 
-    <div className="listCardsContainer">
+    <div className="list-cards-container">
         <h3 className="text-center">All Top 10 Lists</h3>
         <p className="text-center">Click on a list below to see more</p>
         <ListGroup>

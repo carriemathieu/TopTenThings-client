@@ -28,14 +28,30 @@
     margin-top: 5px;
 }
 
-.listContainer {
+.list-container {
     margin: auto;
     width: 50%;
 }
 
-.listCardsContainer {
+.list-cards-container {
     width: 75%;
     margin: auto;
+}
+
+.login-form-container {
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.signup-form-container {
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.welcome-div {
+    text-align: center;
 }
 
 #edit-list-link {
