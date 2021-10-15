@@ -27,7 +27,8 @@ class App extends React.Component {
 
     render() {
         // if user is logged in, render AllLists
-        const { loggedIn, lists, setEditFormData } = this.props
+        // const { loggedIn, lists, setEditFormData } = this.props
+        const { loggedIn, lists } = this.props
     
         return ( 
             <div className="App"> 

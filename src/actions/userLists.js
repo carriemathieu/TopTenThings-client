@@ -16,7 +16,6 @@ export const clearLists = () => {
 }
 
 export const addList = list => {
-    console.log("add list action to dispatch")
     return {
         type: "ADD_LIST",
         list
@@ -48,7 +47,7 @@ export const getUserLists = () => {
     //             dispatch(setUserLists(response.data))
     //         }
     //     })
-    //     .catch(console.log)
+    //     .catch(err => console.log(err))
     // }
 }
 
@@ -67,7 +66,6 @@ export const createList = (listData, history) => {
             if(response.error){
                 alert(response.error)
             } else { 
-                console.log("create list action")
                 dispatch(addList(response.data))
                 dispatch(resetNewListForm())
                 history.push(`/lists/${response.data.id}`)
@@ -101,7 +99,6 @@ export const updateList = (listData, history) => {
 }
 
 export const deleteListSuccess = listId => {
-    console.log("delete list action")
     return {
         type: "DELETE_LIST",
         listId
@@ -109,9 +106,7 @@ export const deleteListSuccess = listId => {
 }
 
 export const deleteList = (listId, history) => {
-    console.log("deleteList action")
     return dispatch => {
-        console.log(listId)
         return fetch(`http://localhost:3000/api/v1/lists/${listId}`, {
             credentials: "include",
             method: "DELETE",

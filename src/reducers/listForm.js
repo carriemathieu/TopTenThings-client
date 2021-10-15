@@ -1,17 +1,17 @@
 const initialState = {
     list_title: "",
-    list_content: [],
+    list_content: ['', '', '', '', '', '', '', '', '', ''],
     category_id: ""
 }
 
-export default (state=initialState, action) => {
+export default function listForm(state=initialState, action) {
     switch(action.type){
         case "UPDATE_NEW_LIST_FORM":
             const updatedListContent = [...state.list_content]
             
             updatedListContent[action.index] = action.formData.value
 
-            if(action.formData.name == "list_content") {
+            if(action.formData.name === "list_content") {
                 return {
                     ...state,
                     list_content: updatedListContent

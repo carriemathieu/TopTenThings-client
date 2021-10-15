@@ -24,6 +24,6 @@ export const getLists = () => {
                 dispatch(setAllLists(response.data))
             }
         })
-        .catch(console.log)
+        .catch(err => console.log(err))
     }
 }

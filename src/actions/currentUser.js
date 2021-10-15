@@ -36,12 +36,11 @@ export const login = (credentials, history) => {
                 // dispatches -> action creator{type: "SET_CURRENT_USER", user: user }, user as arg
                 dispatch(setCurrentUser(response))
                 dispatch(resetLoginForm())
-                console.log("history?")
                 // redirects user to home page
                 history.push('/')
             }
         })
-        .catch(console.log)
+        .catch(err => console.log(err))
     }
 }
 
@@ -103,6 +102,6 @@ export const getCurrentUser = () => {
                 dispatch(getCategories())
             }
         })
-        .catch(console.log)
+        .catch(err => console.log(err))
     }
 }

@@ -30,7 +30,7 @@ class EditListFormWrapper extends React.Component {
 
     render() { 
         const { deleteList, history, list } = this.props
-        const listId = list ? this.props.list.id : null
+        // const listId = list ? this.props.list.id : null
 
         return (
             <div className="list-form">
