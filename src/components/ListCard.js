@@ -12,12 +12,10 @@ const ListCard = ({list}) => {
             >
                 <Card.Body>
                     <Card.Title className="text-center">{list.attributes.list_title}</Card.Title>
-                    
                 </Card.Body>
 
                 <Card.Text className="text-center">
                     Category: {list.attributes.category.name}
-                    
                 </Card.Text>
 
                 <ListGroup variant="flush">
@@ -29,7 +27,6 @@ const ListCard = ({list}) => {
                 </Card.Footer>
 
                 <Card.Link href={`/lists/${list.id}/edit`} className="text-center" id="edit-list-link">Edit this list</Card.Link>
-                
             </Card>
         </div>
         : null
