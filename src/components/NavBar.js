@@ -13,9 +13,9 @@ const NavBar = ({ currentUser, loggedIn, history }) => {
         // <div className = "navbar">
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <NavLink class="navlink" to="/">Home</NavLink>
-                    <NavLink class="navlink" to="/lists">All Lists</NavLink>
-                    <NavLink class="navlink" to="/lists/new">Add List</NavLink>
+                    <NavLink className="navlink" to="/">Home</NavLink>
+                    <NavLink className="navlink" to="/lists">All Lists</NavLink>
+                    <NavLink className="navlink" to="/lists/new">Add List</NavLink>
                     <Navbar.Text>
                         {currentUser ? `Welcome ${currentUser.attributes.first_name}` : ""}
                     </Navbar.Text>

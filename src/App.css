@@ -17,13 +17,16 @@
 }
 
 .list-form {
-    width: 30%;
+    width: 50%;
     margin: auto;
     padding: 10px;
     border: solid 2px black;
     margin-top: 20px;
 }
 
+#delete-trip-btn {
+    margin-top: 5px;
+}
 /* a.active {
     color: green;
 } */

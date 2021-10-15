@@ -23,54 +23,70 @@ const ListForm = ({categories, formData, history, updateNewListForm, user_id, ha
     }
 
     return(
-        <div className="list-form">
-            <Form onSubmit={event => {
-                event.preventDefault()
-                handleSubmit(formData, user_id, history)
-            }}>
-                <Form.Group className="mb-3" controlId="formListTitle">
-                    <FloatingLabel
-                        controlId="floatingListTitle"
-                        label="List Title"
-                        className="mb-3"
-                    >
-                        <Form.Control 
-                            type="text"
-                            placeholder= "list title" 
-                            name="list_title" 
-                            onChange={handleChange} 
-                            value={formData.list_title}
-                        />
-                    </FloatingLabel>
-                </Form.Group>
+        <Form onSubmit={event => {
+            event.preventDefault()
+            handleSubmit(formData, user_id, history)
+        }}>
+            <Form.Group className="mb-3" controlId="formListTitle">
+                <FloatingLabel
+                    controlId="floatingListTitle"
+                    label="List Title"
+                    className="mb-3"
+                >
+                    <Form.Control 
+                        type="text"
+                        placeholder= "list title" 
+                        name="list_title" 
+                        onChange={handleChange} 
+                        value={formData.list_title}
+                    />
+                </FloatingLabel>
+            </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formListSelectCategory">
-                    <Form.Select onChange={handleChange} name="category_id">
-                        <option value="" disabled selected>Please Select a Category</option>
-                        {optionItems()}
-                    </Form.Select>
-                </Form.Group>
+            <Form.Group className="mb-3" controlId="formListSelectCategory">
+                <Form.Select onChange={handleChange} name="category_id">
+                    <option value="" defaultValue>Please Select a Category</option>
+                    {optionItems()}
+                </Form.Select>
+            </Form.Group>
 
-                { console.log(formData)}
-                {/* {list_content.map((index) => <input name={`list_content[${index}]`} />)} */}
-                <Form.Group className="mb-3" controlId="formListContent">
-                    1.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 0)} value={formData.list_content[0]}/><br/>
-                    2.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 1)} value={formData.list_content[1]}/><br/>
-                    3.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 2)} value={formData.list_content[2]}/><br/>
-                    4.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 3)} value={formData.list_content[3]}/><br/>
-                    5.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 4)} value={formData.list_content[4]}/><br/>
-                    6.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 5)} value={formData.list_content[5]}/><br/>
-                    7.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 6)} value={formData.list_content[6]}/><br/>
-                    8.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 7)} value={formData.list_content[7]}/><br/>
-                    9.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 8)} value={formData.list_content[8]}/><br/>
-                    10.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 9)} value={formData.list_content[9]}/><br/>
-                </Form.Group>
+            
+            <Form.Group className="mb-3" controlId="formListContent">
+                {[...Array(10)].map((value, index) => (
+                    <Form.Control 
+                        key={index}
+                        size="sm"
+                        type="text"
+                        placeholder={index+1+'.'}
+                        name="list_content"
+                        onChange={e => handleChange(e, index)}
+                        value={listForm.list_content[index]}
+                    />
+                ))}
+            </Form.Group>
 
-                <Form.Group className="mb-3" controlId="submitButton">
-                    <Button variant="outline-dark" as="input" type="submit" value={editMode ? "Update List" : "Create List"}/>
-                </Form.Group>
-            </Form>
-        </div>
+            {/* <Form.Group className="mb-3" controlId="formListContent">
+                1.<input   /><br/>
+                2.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 1)} value={formData.list_content[1]}/><br/>
+                3.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 2)} value={formData.list_content[2]}/><br/>
+                4.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 3)} value={formData.list_content[3]}/><br/>
+                5.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 4)} value={formData.list_content[4]}/><br/>
+                6.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 5)} value={formData.list_content[5]}/><br/>
+                7.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 6)} value={formData.list_content[6]}/><br/>
+                8.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 7)} value={formData.list_content[7]}/><br/>
+                9.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 8)} value={formData.list_content[8]}/><br/>
+                10.<input placeholder= "list content" name="list_content" onChange={e => handleChange(e, 9)} value={formData.list_content[9]}/><br/>
+            </Form.Group> */}
+
+            <Form.Group className="d-grid gap-2" controlId="submitButton">
+                <Button 
+                    variant="outline-dark" 
+                    as="input" 
+                    type="submit" 
+                    value={editMode ? "Update List" : "Create List"}
+                />
+            </Form.Group>
+        </Form>
     )
 }
 

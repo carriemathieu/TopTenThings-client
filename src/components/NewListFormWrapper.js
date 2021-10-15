@@ -10,7 +10,9 @@ const NewListFormWrapper = ({ history, createList }) => {
     }
 
     return (
-        <ListForm history={history} handleSubmit={handleSubmit}/>
+        <div className="list-form">
+            <ListForm history={history} handleSubmit={handleSubmit}/>
+        </div>
     )
 }
 

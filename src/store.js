@@ -8,6 +8,7 @@ import loginForm from './reducers/loginForm'
 import listForm from './reducers/listForm'
 import signUpForm from './reducers/signUp'
 import users from './reducers/users'
+import userList from './reducers/userLists'
 
 const reducer = combineReducers({
     allLists,
@@ -16,7 +17,8 @@ const reducer = combineReducers({
     listForm,
     loginForm,
     signUpForm,
-    users
+    users,
+    userList
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

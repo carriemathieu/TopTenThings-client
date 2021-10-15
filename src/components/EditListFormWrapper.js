@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Button } from 'react-bootstrap'
 
 import ListForm from './ListForm'
-import { updateList } from '../actions/userLists' //?
+import { updateList, deleteList } from '../actions/userLists' //?
 import { setEditFormData, resetNewListForm } from '../actions/listForm'
 
 class EditListFormWrapper extends React.Component {
@@ -28,11 +29,22 @@ class EditListFormWrapper extends React.Component {
     }
 
     render() { 
+        const { deleteList, history, list } = this.props
+        const listId = list ? this.props.list.id : null
 
         return (
-            <ListForm editMode handleSubmit={this.handleSubmit}/>
+            <div className="list-form">
+                <ListForm editMode handleSubmit={this.handleSubmit}/>
+                <div className="d-grid gap-2">
+                    <Button 
+                        variant="outline-danger"
+                        onClick={()=>deleteList(list.id, history)}
+                        id="delete-trip-btn"
+                    >Delete List</Button>
+                </div>
+            </div>
         )
     }
 }
 
-export default connect(null, { updateList, setEditFormData, resetNewListForm })(EditListFormWrapper)
+export default connect(null, { updateList, setEditFormData, resetNewListForm, deleteList })(EditListFormWrapper)
