@@ -27,6 +27,15 @@
 #delete-trip-btn {
     margin-top: 5px;
 }
+
+.listContainer {
+    margin: auto;
+    width: 50%;
+}
+
+#edit-list-link {
+    color: white !important;
+}
 /* a.active {
     color: green;
 } */
