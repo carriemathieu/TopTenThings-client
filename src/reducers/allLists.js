@@ -14,14 +14,8 @@ export default function allLists(state = {}, action) {
                 ...state, list
             ]
         case "DELETE_LIST":
-            console.log("state.allLists", state)
             const lists = state.filter(list => list.id !== action.listId)
-        // debugger
-        // console.log("...state", {...state})
-        // console.log("state", state.allLists)
-        // return state
             return lists           
-            
         case "SET_ALL_LISTS":
             return action.lists
         case "CLEAR_LISTS":
