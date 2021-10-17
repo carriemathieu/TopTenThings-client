@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import { updateNewListForm } from '../actions/listForm'
 import { createList } from '../actions/userLists'
 import { FloatingLabel, Form, Button } from 'react-bootstrap'
-// import { allCategories } from '../actions/allCategories'
-
 
 const ListForm = ({categories, formData, history, updateNewListForm, user_id, handleSubmit, editMode }) => {
     

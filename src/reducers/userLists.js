@@ -1,9 +1,3 @@
-// const initialState = {
-//     allLists:[]
-// }
-
-// import allLists from "./allLists"
-
 export default function userLists(state = {}, action) {
     switch (action.type) {
         case "CLEAR_LISTS":
