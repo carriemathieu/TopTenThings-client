@@ -119,6 +119,7 @@ export const deleteList = (listId, history) => {
         .then(resp => resp.json())
         .then(response => {
             if(response.error){
+                console.log("error", response.error)
                 alert(response.error)
             } else { 
                 dispatch(deleteListSuccess(listId))
