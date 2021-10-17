@@ -41,9 +41,11 @@ class App extends React.Component {
                     <Route exact path='/lists' render={(props) => <AllLists {...props} />} />
                     <Route exact path='/lists/new' component={NewListFormWrapper} />
                     <Route exact path='/lists/:id' render={props => {  
+                        
                         // from lodash library - checks if object is empty. doesn't render list card until lists object is filled in order to use "find"
                         if(!_.isEmpty(lists)){
                             const list = lists.find(l => l.id === props.match.params.id) 
+                            
                             return <ListCard list={list} {...props}/> 
                         }
                     }}/>

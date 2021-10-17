@@ -15,10 +15,9 @@ const ListForm = ({categories, formData, history, updateNewListForm, user_id, ha
         updateNewListForm(name, value, index)
     }
 
-    //Array(10).fill().map
     const optionItems = () => {
         return categories.map((category) =>
-            <option key={category.name} value={editMode ? formData.category_id : category.id} id={category.id}>{category.name}</option>
+            <option key={category.id} value={editMode ? formData.category_id : category.id} id={category.id}>{category.name}</option>
         )
     }
 
@@ -45,7 +44,7 @@ const ListForm = ({categories, formData, history, updateNewListForm, user_id, ha
 
             <Form.Group className="mb-3" controlId="formListSelectCategory">
                 <Form.Select onChange={handleChange} name="category_id">
-                    <option value="" defaultValue>Please Select a Category</option>
+                <option value="" defaultValue >Please Select a Category</option>
                     {optionItems()}
                 </Form.Select>
             </Form.Group>

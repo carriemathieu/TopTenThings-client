@@ -16,6 +16,7 @@ export const clearLists = () => {
 }
 
 export const addList = list => {
+    console.log("add list action, list:", list)
     return {
         type: "ADD_LIST",
         list
@@ -52,26 +53,27 @@ export const getUserLists = () => {
 }
 
 export const createList = (listData, history) => {
-    return dispatch => {
-        return fetch("http://localhost:3000/api/v1/lists", {
-            credentials: "include",
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(listData)
-        }) 
-        .then(resp => resp.json())
-        .then(response => {
-            if(response.error){
+    return async dispatch => {
+        try {
+            const resp = await fetch("http://localhost:3000/api/v1/lists", {
+                credentials: "include",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(listData)
+            })
+            const response = await resp.json()
+            if (response.error) {
                 alert(response.error)
-            } else { 
+            } else {
                 dispatch(addList(response.data))
                 dispatch(resetNewListForm())
                 history.push(`/lists/${response.data.id}`)
             }
-        })
-        .catch(err => console.log(err))
+        } catch (err) {
+            return console.log(err)
+        }
     }
 }
 

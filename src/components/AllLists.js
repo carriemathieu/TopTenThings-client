@@ -23,7 +23,7 @@ const AllLists = props => {
                 </ListGroup.Item>
             })} 
         </ListGroup>  
-    </div> : "Loading..."
+    </div> : "There are no lists currently! Add click 'Add List' to one."
 
     return (
         listCards
