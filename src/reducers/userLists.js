@@ -2,6 +2,8 @@
 //     allLists:[]
 // }
 
+// import allLists from "./allLists"
+
 export default function userLists(state = {}, action) {
     switch (action.type) {
         // case "ADD_LIST":
@@ -24,13 +26,10 @@ export default function userLists(state = {}, action) {
             // debugger
             // map over each list - does list id = action.list id? if so, return action.list... otherwise, return list
             return state.allLists.map(list => list.id === action.list.id ? action.list : list)
-        case "DELETE_LIST":
-            // debugger
-            // console.log("...state", {...state})
-            // console.log("state", state.allLists)
-            return state
-            // return state.allLists.filter(list => list.id !== action.listId)
+        
         default:
-            return state
+            return {
+                ...state
+            }
     }
 }
