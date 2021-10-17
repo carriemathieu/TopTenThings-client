@@ -45,7 +45,7 @@ class App extends React.Component {
                         if(!_.isEmpty(lists)){
                             const list = lists.find(l => l.id === props.match.params.id) 
                             
-                            return <ListCard list={list} {...props}/> 
+                            return !list ? window.alert("Unable to locate list") : <ListCard list={list} {...props}/> 
                         }
                     }}/>
 
@@ -53,7 +53,7 @@ class App extends React.Component {
                         if(!_.isEmpty(lists)){
                             const list = lists.find(l => l.id === props.match.params.id)
 
-                            return <EditListFormWrapper list={list} {...props}/> 
+                            return !list ? window.alert("Unable to locate list") : <EditListFormWrapper list={list} {...props}/> 
 
                         }
                     }}/>
