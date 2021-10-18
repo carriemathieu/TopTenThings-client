@@ -37,7 +37,7 @@ export const login = (credentials, history) => {
                 dispatch(setCurrentUser(response))
                 dispatch(resetLoginForm())
                 // redirects user to home page
-                history.push('/')
+                history.push('/lists')
             }
         })
         .catch(err => console.log(err))

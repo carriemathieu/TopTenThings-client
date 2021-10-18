@@ -13,7 +13,7 @@ const NavBar = ({ currentUser, loggedIn, history }) => {
         // <div className = "navbar">
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <NavLink className="navlink" to="/">Home</NavLink>
+                    {/* <NavLink className="navlink" to="/">Home</NavLink> */}
                     <NavLink className="navlink" to="/lists">All Lists</NavLink>
                     <NavLink className="navlink" to="/lists/new">Add List</NavLink>
                     <Navbar.Text>
